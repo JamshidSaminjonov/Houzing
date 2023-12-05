@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Home from "../components/Home";
-import Properties from "../components/Properties";
+import { navbar } from "../utils/navbar";
 
 const Root = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/properties" element={<Properties />} />
+        {navbar.map(({ path, id, element }) => (
+          <Route key={id} path={path} element={element} />
+        ))}
         <Route path="/" element={<Navigate to={"/home"} />} />
         <Route path="*" element={<h1>404 NOT FOUND</h1>} />
       </Routes>
