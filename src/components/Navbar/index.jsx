@@ -4,6 +4,7 @@ import { Container, Contents, Link, Logo, Wrapper } from "./style";
 import { Outlet, useNavigate } from "react-router-dom";
 import LogoImg from "../../assets/icons/logo.svg";
 import { navbar } from "../../utils/navbar";
+import Button from "../Genenric/Button";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const Navbar = () => {
           })}
         </Contents>
         <Contents>
-          <button>Sign in</button>
+          <Button>Sign in</Button>
         </Contents>
       </Wrapper>
       <Outlet />
