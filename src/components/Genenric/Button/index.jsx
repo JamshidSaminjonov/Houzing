@@ -1,8 +1,12 @@
 import React from "react";
 import { Container } from "./style";
 
-const Button = () => {
-  return <Container type="dark">Sign in</Container>;
+const Button = ({ children, type, onClick, width, height }) => {
+  return (
+    <Container width={width} height={height} onClick={onClick} type={type}>
+      {children || "generic button"}
+    </Container>
+  );
 };
 
 export default Button;

@@ -29,22 +29,18 @@ const getType = ({ type }) => {
   }
 };
 
-const Container = styled.div`
+const Container = styled.input`
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 2px;
   font-size: 14px;
-  background-color: red;
   min-width: 120px;
-  cursor: pointer;
-  :active {
-    opacity: 0.7;
-  }
-
+  outline: none;
+  border: 1px solid #e6e9ec;
   height: ${({ height }) => (height ? `${height}px` : "44px")};
-  width: ${({ width }) => (width ? `${width}px` : "130px")};
-  ${getType};
+  width: ${({ width }) => (width ? `${width}px` : "100%")};
+  /* ${getType}; */
 `; //div o'rniga button desa ham buladi bir xil deyarli
 
 export { Container };

@@ -16,20 +16,24 @@ const Navbar = () => {
           <h3>Houzing</h3>
         </Contents>
         <Contents>
-          {navbar.map(({ id, title, path }) => {
+          {navbar.map(({ id, title, path, hidden }) => {
             return (
-              <Link
-                className={({ isActive }) => isActive && "active"}
-                key={id()}
-                to={path}
-              >
-                {title}
-              </Link>
+              !hidden && (
+                <Link
+                  className={({ isActive }) => isActive && "active"}
+                  key={id()}
+                  to={path}
+                >
+                  {title}
+                </Link>
+              )
             );
           })}
         </Contents>
         <Contents>
-          <Button>Sign in</Button>
+          <Button onClick={() => navigate("/signin")} type="dark">
+            Sign in
+          </Button>
         </Contents>
       </Wrapper>
       <Outlet />

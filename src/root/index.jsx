@@ -8,7 +8,7 @@ const Root = () => {
     <BrowserRouter>
       <Routes>
         <Route element={<Navbar />}>
-          {navbar.map(({ path, id, element }) => (
+          {navbar.map(({ path, id, element, hidden }) => (
             <Route key={id} path={path} element={element} />
           ))}
         </Route>
