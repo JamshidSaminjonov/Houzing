@@ -5,6 +5,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import LogoImg from "../../assets/icons/logo.svg";
 import { navbar } from "../../utils/navbar";
 import Button from "../Genenric/Button";
+import Filter from "../Genenric/Filter";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -36,6 +37,7 @@ const Navbar = () => {
           </Button>
         </Contents>
       </Wrapper>
+      <Filter />
       <Outlet />
     </Container>
   );

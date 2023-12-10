@@ -19,3 +19,18 @@ body {
   /* Padding */
   --padding: 0 130px;
 }
+.title {
+  font-family: Montserrat;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px; /* 128.571% */
+  letter-spacing: -0.56px;
+}
+.subTitle {
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 142.857% */
+}

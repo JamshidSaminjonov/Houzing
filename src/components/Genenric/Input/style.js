@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 const getType = ({ type }) => {
   switch (type) {
     case "dark":
@@ -40,7 +39,20 @@ const Container = styled.input`
   border: 1px solid #e6e9ec;
   height: ${({ height }) => (height ? `${height}px` : "44px")};
   width: ${({ width }) => (width ? `${width}px` : "100%")};
+  padding-left: ${({ icon }) => (icon ? "45px" : "20px")};
   /* ${getType}; */
 `; //div o'rniga button desa ham buladi bir xil deyarli
+const Wrapper = styled.div`
+  width: fit-content;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: ${({ width }) => (width ? `${width}px` : "100%")};
+`;
+const Icon = styled.img`
+  position: absolute;
+  left: 15px;
+  display: ${({ icon }) => (icon ? "block" : "none")};
+`;
 
-export { Container };
+export { Container, Wrapper, Icon };
