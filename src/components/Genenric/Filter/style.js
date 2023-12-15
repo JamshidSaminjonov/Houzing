@@ -6,6 +6,9 @@ const Container = styled.div`
   padding-top: 10px;
   padding-bottom: 10px;
   gap: 20px;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
 `;
 const Icon = styled.img`
   margin-right: 8px;

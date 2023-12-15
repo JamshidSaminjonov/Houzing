@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   height: 64px;
   font-size: 16px;
   max-width: 1440px;
+  width: 100%;
 `;
 
 const Contents = styled.div`
@@ -36,5 +37,9 @@ const Link = styled(NavLink)`
   padding: 0 32px;
   color: #fff;
 `;
-
-export { Container, Wrapper, Contents, Logo, Link };
+const Main = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: var(--colorPrimary);
+`;
+export { Container, Wrapper, Contents, Logo, Link, Main };
