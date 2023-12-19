@@ -11,42 +11,50 @@ import {
   Resize,
 } from "./style";
 import noImg from "../../assets/icons/Noimge.png";
-import bed from "../../assets/icons/bed.svg";
-import bath from "../../assets/icons/bath.svg";
-import car from "../../assets/icons/car.svg";
-import ruler from "../../assets/icons/ruler.svg";
-import resize from "../../assets/icons/resize.svg";
-import love from "../../assets/icons/love.svg";
-const HouseCard = ({
-  url,
-  title,
-  bedCount,
-  carCount,
-  rulerCount,
-  bathCount,
-}) => {
+import bedImg from "../../assets/icons/bed.svg";
+import bathImg from "../../assets/icons/bath.svg";
+import carImg from "../../assets/icons/car.svg";
+import rulerImg from "../../assets/icons/ruler.svg";
+import resizeImg from "../../assets/icons/resize.svg";
+import loveImg from "../../assets/icons/love.svg";
+const HouseCard = ({ data = {}, i }) => {
+  const {
+    attachments,
+    address,
+    description,
+    city,
+    country,
+    houseDetails,
+    price,
+    salePrice,
+    category,
+  } = data;
   return (
     <Container>
-      <Img src={noImg || url} />
+      <Img src={(attachments && attachments[0]?.imgPath) || noImg} />
       <Content>
-        <div className="subTitle">{title || "New Apartment Nice Wiew"}</div>
-        <div className="info">Quincy St, Brooklyn, NY, USA</div>
+        <div className="subTitle line">
+          {city},{country},{description}
+        </div>
+        <div className="info">
+          {address || "Quincy St, Brooklyn, NY, USA"}-{category || "category"}{" "}
+        </div>
         <Details>
           <Item>
-            <Icon src={bed} />
-            <div className="info">{bedCount || 0}Beds</div>
+            <Icon src={bedImg} />
+            <div className="info">{houseDetails?.bed || 0}Beds</div>
           </Item>
           <Item>
-            <Icon src={bath} />
-            <div className="info">{bathCount || 0} Baths</div>
+            <Icon src={bathImg} />
+            <div className="info">{houseDetails?.baths || 0} Baths</div>
           </Item>
           <Item>
-            <Icon src={car} />
-            <div className="info">{carCount || 0} Garage</div>
+            <Icon src={carImg} />
+            <div className="info">{houseDetails?.garage || 0} Garage</div>
           </Item>
           <Item>
-            <Icon src={ruler} />
-            <div className="info">{rulerCount || 0} Sq Ft</div>
+            <Icon src={rulerImg} />
+            <div className="info">{houseDetails?.size || 0} Sq Ft</div>
           </Item>
         </Details>
       </Content>
@@ -54,12 +62,12 @@ const HouseCard = ({
       <Content>
         <Details footer>
           <Item footer>
-            <div className="info">$2,800/mo</div>
-            <div className="subtitle">$7,500/mo</div>
+            <div className="info">{`$${salePrice}/mo` || "$2,800/mo"}</div>
+            <div className="subtitle">{`$${price}/mo` || "$7,500/mo"}</div>
           </Item>
           <Item frow>
-            <Resize frow src={resize} />
-            <Love frow src={love} />
+            <Resize frow src={resizeImg} />
+            <Love frow src={loveImg} />
           </Item>
         </Details>
       </Content>

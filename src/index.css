@@ -45,3 +45,9 @@ body {
   color: #696969;
   margin-top: 4px;
 }
+.line {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

@@ -1,18 +1,23 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 380px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  width: 100%;
+  max-width: 380px;
+  min-width: 330px;
   height: 430px;
-  flex-shrink: 0;
+
+  /* filter: box-shadow(0px 20px 38px rgba(0, 0, 0, 0.06))
+    drop-shadow(0px 7px 46px rgba(0, 0, 0, 0.06))
+    drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.06)); */
   border: 1px solid black;
-  margin: 100px;
 `;
 const Img = styled.img`
   width: 100%;
   max-height: 220px;
   margin-bottom: 24px;
+  min-height: 220px;
 `;
 const Content = styled.div`
   padding: 8px 20px;
