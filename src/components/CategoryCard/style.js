@@ -6,7 +6,6 @@ const Container = styled.div`
   min-width: 250px;
   max-height: 350px;
   min-height: 330px;
-  border: 1px solid black;
   border-radius: 3px;
   position: relative;
 `;

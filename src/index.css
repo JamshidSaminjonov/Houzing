@@ -51,3 +51,8 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.slick-prev:before,
+.slick-next:before {
+  color: #0d263b !important;
+  font-size: 25px !important;
+}

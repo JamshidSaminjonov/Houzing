@@ -5,13 +5,14 @@ import { Button, Input } from "../Genenric";
 import Carousel from "../Carousel";
 import HouseCard from "../HouseCard";
 import CategoryCard from "../Categorycard";
+import Category from "../Category";
 
 const Home = () => {
   return (
     <Container>
       <Carousel></Carousel>
       <HouseCard url></HouseCard>
-      <CategoryCard></CategoryCard>
+      <Category></Category>
     </Container>
   );
 };
