@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container, Icon, MenuWrapper, Section } from "./style";
 import Input from "../Input";
 import Button from "../Button";
@@ -8,6 +8,7 @@ import { Dropdown } from "antd";
 import { uzeReplace } from "../../../hooks/useReplace";
 import { useNavigate, useLocation } from "react-router-dom";
 import useSearch from "../../../hooks/useSearch";
+import { Select, Space } from "antd";
 
 const Filter = ({}) => {
   const location = useLocation();
@@ -27,7 +28,29 @@ const Filter = ({}) => {
     console.log(name, value);
     navigate(`${location?.pathname}${uzeReplace(name, value)}`);
   };
+  //token
+  const token =
+    "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJzZWxmIiwic3ViIjoianNhbWluam9ub3Y1NzA1QGdtYWlsLmNvbSIsImV4cCI6MTcyMTQyODE1NSwiaWF0IjoxNzAzNDI4MTU1LCJzY29wZSI6IlJPTEVfVVNFUiJ9.EyCpZWw73THyTiKdxbTB1cgZ2K0Px3sfRPR3ecgIAD7mMj8JYDmkzwibNZoql-MwLWRcAQW9LvItu0QtujvHSKA-48Ifda7puuYiLbubm3SdixVC23Q4H0itVPLesY8j9DcI7DgbaMFxgIo70GFoUiL-_3pr2hgDc4kzkwykNIrLz8cTO4rMj1-NWYsuobsZbuO-LOzwtItG6Wv3zGfzrU9nqKkoVYzrUmZC9k2OnTEq2XnE9dB-nT3Z1EQ184FdfzqsE5TPJWF3Zx8p2KpBGh75jHGmRMUe_8B8N3p0ucNwuzqDHcRXKIqBY51IHSDuwGkHqbeWi--CK7Fy0Vd-Aw";
 
+  //fetch
+  const [data, setData] = useState([]);
+  const { VITE_APP_BASE_URL: url } = import.meta.env;
+
+  //use effet
+  useEffect(() => {
+    fetch(`${url}/categories/list`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => setData(res?.data || []));
+  }, []);
+
+  const handleProvinceChange = (category_id) => {
+    console.log(category_id);
+    navigate(`/properties${uzeReplace("category_id", category_id)}`);
+  };
   const items = [
     {
       key: "1",
@@ -82,13 +105,20 @@ const Filter = ({}) => {
               ref={RoomRef}
               placeholder={"Room"}
             />
-            <Input
-              defaultValue={useSearch().get("size")}
-              onChange={onChange}
-              name="size"
-              ref={SizeRef}
-              placeholder={"Size"}
-            />
+            <Space>
+              <Select
+                defaultValue={"salom"}
+                style={{
+                  width: 120,
+                  height: 44,
+                }}
+                onChange={handleProvinceChange}
+                options={data?.map((value1) => ({
+                  label: value1?.name,
+                  value: value1?.id,
+                }))}
+              />
+            </Space>
           </Section>
           <h1 className="subTitle">Price</h1>
           <Section>
@@ -117,6 +147,7 @@ const Filter = ({}) => {
       ),
     },
   ];
+
   return (
     <Container>
       <Input

@@ -61,7 +61,6 @@ const Category = () => {
     fetch(`${url}/categories/list`, {
       headers: {
         Authorization: `Bearer ${token}`,
-
       },
     })
       .then((res) => res.json())
