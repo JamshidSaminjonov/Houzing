@@ -54,7 +54,6 @@ const Category = () => {
   //fetch
   const [data, setData] = useState([]);
   const { VITE_APP_BASE_URL: url } = import.meta.env;
-  const { search } = useLocation();
 
   //use effet
   useEffect(() => {
@@ -66,7 +65,6 @@ const Category = () => {
       .then((res) => res.json())
       .then((res) => setData(res?.data || []));
   }, []);
-  console.log(data);
   return (
     <Container>
       <Main>

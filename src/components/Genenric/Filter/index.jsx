@@ -12,20 +12,17 @@ import { Select, Space } from "antd";
 
 const Filter = ({}) => {
   const location = useLocation();
-  console.log(useSearch().get("zip_code"));
+  const query = useSearch();
   const navigate = useNavigate();
   const CountryRef = useRef();
   const RegionRef = useRef();
   const CityRef = useRef();
   const ZipcodeRef = useRef();
   const RoomRef = useRef();
-  const SizeRef = useRef();
-  const SortRef = useRef();
   const maxPriceRef = useRef();
   const minPriceRef = useRef();
 
   const onChange = ({ target: { name, value } }) => {
-    console.log(name, value);
     navigate(`${location?.pathname}${uzeReplace(name, value)}`);
   };
   //token
@@ -48,9 +45,23 @@ const Filter = ({}) => {
   }, []);
 
   const handleProvinceChange = (category_id) => {
-    console.log(category_id);
     navigate(`/properties${uzeReplace("category_id", category_id)}`);
   };
+
+  const handleProvinceSort = (sort) => {
+    navigate(`/properties${uzeReplace("sort", sort)}`);
+  };
+  //default value
+  const [value, setValue] = useState("Select Category");
+
+  useEffect(() => {
+    let res = data?.filter((dfv) => dfv?.id == +query.get("category_id"));
+
+    res?.name && setValue(res?.name);
+    !query.get("category_id") && setValue("Select Category");
+    console.log(value, "res");
+  }, [location?.search, data]);
+
   const items = [
     {
       key: "1",
@@ -92,13 +103,6 @@ const Filter = ({}) => {
           <Section>
             {" "}
             <Input
-              defaultValue={useSearch().get("sort")}
-              onChange={onChange}
-              name="sort"
-              ref={SortRef}
-              placeholder={"Sort"}
-            />
-            <Input
               defaultValue={useSearch().get("room")}
               onChange={onChange}
               name="room"
@@ -107,16 +111,34 @@ const Filter = ({}) => {
             />
             <Space>
               <Select
-                defaultValue={"salom"}
+                defaultValue={query.get("sort") || "Select Sort"}
                 style={{
-                  width: 120,
+                  width: 200,
+                  height: 44,
+                }}
+                onChange={handleProvinceSort}
+                options={[
+                  { label: "Select Sort", value: "" },
+                  { label: "asc", value: "asc" },
+                  { label: "desc", value: "desc" },
+                ]}
+              />
+            </Space>
+            <Space>
+              <Select
+                defaultValue={value}
+                style={{
+                  width: 200,
                   height: 44,
                 }}
                 onChange={handleProvinceChange}
-                options={data?.map((value1) => ({
-                  label: value1?.name,
-                  value: value1?.id,
-                }))}
+                options={[
+                  { label: "Select Category", value: "" },
+                  ...data?.map((value1) => ({
+                    label: value1?.name,
+                    value: value1?.id,
+                  })),
+                ]}
               />
             </Space>
           </Section>

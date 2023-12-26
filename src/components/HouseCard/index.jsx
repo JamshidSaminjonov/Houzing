@@ -38,16 +38,16 @@ const HouseCard = ({ data = {}, i }) => {
         </div>
         <div className="info">
           {address || "Quincy St, Brooklyn, NY, USA"}-
-          {category?.name || "category"}{" "}
+          {category?.name || "category"}, {houseDetails?.room || "0"} rooms
         </div>
         <Details>
           <Item>
             <Icon src={bedImg} />
-            <div className="info">{houseDetails?.bed || 0}Beds</div>
+            <div className="info">{houseDetails?.beds || 0} Beds</div>
           </Item>
           <Item>
             <Icon src={bathImg} />
-            <div className="info">{houseDetails?.baths || 0} Baths</div>
+            <div className="info">{houseDetails?.bath || 0} Baths</div>
           </Item>
           <Item>
             <Icon src={carImg} />
@@ -55,7 +55,7 @@ const HouseCard = ({ data = {}, i }) => {
           </Item>
           <Item>
             <Icon src={rulerImg} />
-            <div className="info">{houseDetails?.size || 0} Sq Ft</div>
+            <div className="info">{houseDetails?.area || 0} Sq Ft</div>
           </Item>
         </Details>
       </Content>
