@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <Container>
       <Carousel></Carousel>
-      <HouseCard url></HouseCard>
       <Category></Category>
     </Container>
   );

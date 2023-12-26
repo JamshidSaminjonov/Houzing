@@ -1,11 +1,10 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 
 import { Container, Main } from "./style";
 
-import { useRef } from "react";
 import CategoryCard from "../Categorycard";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Category = () => {
   const settings = {
