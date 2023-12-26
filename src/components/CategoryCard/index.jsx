@@ -4,7 +4,6 @@ import noImg from "../../assets/icons/Noimge.png";
 import category from "../../assets/icons/category.jpg";
 import bedImg from "../../assets/icons/bed.svg";
 const CategoryCard = ({ onClick, data = {}, i }) => {
-  console.log(onClick, data);
   const { name } = data;
   return (
     <Container onClick={onClick}>
