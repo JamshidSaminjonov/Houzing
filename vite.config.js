@@ -6,3 +6,5 @@ import svgr from "vite-plugin-svgr";
 export default defineConfig({
   plugins: [react(), svgr()],
 });
+<reference type="vite/client" />;
+<reference type="vite-plugin-svgr/client" />;

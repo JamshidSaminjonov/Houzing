@@ -56,3 +56,12 @@ body {
   color: #0d263b !important;
   font-size: 25px !important;
 }
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  font-size: 25px !important;
+}
+
+.slick-dots-bottom {
+  width: inherit !important;
+}

@@ -1,17 +1,21 @@
 import React from "react";
-// import Input from "../Genenric/Input";
-import { Container } from "./style";
-import { Button, Input } from "../Genenric";
 import Carousel from "../Carousel";
-import HouseCard from "../HouseCard";
-import CategoryCard from "../Categorycard";
+import Recommended from "../Recommended";
 import Category from "../Category";
+import Why from "../Why";
+import Recent from "../Recent";
+import Banner from "../Banner";
+import { Container } from "./style";
 
-const Home = () => {
+export const Home = () => {
   return (
     <Container>
-      <Carousel></Carousel>
-      <Category></Category>
+      <Carousel />
+      <Recommended />
+      <Why />
+      <Category />
+      <Banner />
+      <Recent />
     </Container>
   );
 };

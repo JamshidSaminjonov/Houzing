@@ -6,6 +6,7 @@ import LogoImg from "../../assets/icons/logo.svg";
 import { navbar } from "../../utils/navbar";
 import Button from "../Genenric/Button";
 import Filter from "../Genenric/Filter";
+import Footer from "../Footer";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ const Navbar = () => {
 
       <Filter />
       <Outlet />
+      <Footer />
     </Container>
   );
 };
